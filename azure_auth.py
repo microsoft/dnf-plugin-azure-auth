@@ -85,7 +85,8 @@ def get_token():
             stdout=subprocess.PIPE,
         )
     except subprocess.CalledProcessError as e:
-        # Try again if we are running as sudo in case our user has permission but the sudo user doesn't.
+        # Upon an error if running as sudo try again without runuser in case our user
+        # has permission on the storage account but the sudo user doesn't.
         if "SUDO_USER" in os.environ:
             output = subprocess.run(
                 AZ_COMMAND,
