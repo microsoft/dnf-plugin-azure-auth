@@ -5,11 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/cbl-mariner/base/core:2.0
     steps:
-      - name: Install dependencies
-        run: unset HOME; tdnf install -y build-essential git tar rpm-build ca-certificates
       - uses: actions/checkout@v2
-      - name: build
-        run: make rpm
+      - name: Install dependencies
+        run: docker build .
