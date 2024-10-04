@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Build RPMs
         run: docker build -o out .
       - name: Release
         uses: softprops/action-gh-release@v1
