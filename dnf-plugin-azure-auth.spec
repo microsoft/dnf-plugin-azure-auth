@@ -13,6 +13,7 @@ URL:            https://github.com/microsoft/dnf-plugin-azure-auth/
 Source0:        %{name}-%{version}.tar.gz
 %global debug_package %{nil}
 Requires:       python3-dnf
+BuildRequires:  python3-devel
 
 %description
 DNF plugin for accessing repos in Azure Blob Storage via Azure AD
@@ -34,5 +35,7 @@ cp azure_auth.conf %{buildroot}%{_sysconfdir}/dnf/plugins/azure_auth.conf
 
 %changelog
 
+* Fri Oct 04 2024 Tom Fay <tomfay@microsoft.com> - 0.1.0-2
+- Build for RHEL 8 and 9
 * Thu Sep 19 2024 Tom Fay <tomfay@microsoft.com> - 0.1.0-1
 - Original version
